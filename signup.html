@@ -254,12 +254,12 @@
 
     const data = {
       sheet1: {
-        "Full Name": fullName,
-        "Email": email,
-        "Password": password,
-        "Verified Timestamp": "",  // نتركها فارغة - ستُملأ تلقائيًا أو لاحقًا
-        "Status": "Pending",      // تعيين الحالة "Pending" بشكل افتراضي
-        "###": ""                 // حقل إضافي فارغ حسب طلبك
+        fullName: fullName,
+        email: email,
+        password: password,
+        verifiedTimestamp: "", // تتركها فارغة
+        status: "Pending"      // الحالة الافتراضية
+        // لا تضع "###" لأنه ممكن يسبب مشكلة
       }
     };
 
@@ -274,6 +274,7 @@
     .then(response => {
       alert('Signed up successfully! We’ll contact you soon.');
       form.reset();
+      console.log(response);
     })
     .catch(error => {
       alert('Failed to sign up. Please try again.');
@@ -281,6 +282,5 @@
     });
   });
 </script>
-
 
 </html>
