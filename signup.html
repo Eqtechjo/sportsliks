@@ -12,13 +12,11 @@
       margin: 0;
       padding: 0;
     }
-
     body {
       background-color: #f9f9f9;
       color: #111;
       padding: 40px 20px;
     }
-
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -28,19 +26,16 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
       transition: box-shadow 0.3s ease;
     }
-
     h1 {
       text-align: center;
       font-size: 28px;
       margin-bottom: 15px;
     }
-
     p.description {
       text-align: center;
       font-size: 16px;
       margin-bottom: 20px;
     }
-
     .highlight {
       text-align: center;
       font-weight: bold;
@@ -48,54 +43,15 @@
       color: #28a745;
       margin-bottom: 30px;
     }
-
-    .info-section h2 {
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
-
-    .card-row {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .card {
-      background-color: #f1f1f1;
-      border-radius: 10px;
-      padding: 20px;
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .card img {
-      width: 40px;
-      height: 40px;
-    }
-
-    .card div {
-      flex: 1;
-    }
-
     form {
       margin-top: 30px;
     }
-
     label {
       display: block;
       margin-bottom: 5px;
       font-weight: 600;
     }
-
-    input, select {
+    input {
       width: 100%;
       padding: 12px;
       margin-bottom: 20px;
@@ -104,12 +60,10 @@
       box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
       transition: box-shadow 0.3s ease, border-color 0.3s ease;
     }
-
     input:focus {
       border-color: #28a745;
       box-shadow: 0 0 5px rgba(40,167,69,0.2);
     }
-
     button {
       background-color: #28a745;
       color: white;
@@ -122,50 +76,10 @@
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
-
     button:hover {
       background-color: #218838;
       transform: scale(1.02);
     }
-
-    .terms {
-      font-size: 12px;
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .terms a {
-      color: #28a745;
-      text-decoration: none;
-    }
-
-    .why-join {
-      margin-top: 40px;
-    }
-
-    .why-join h2 {
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
-
-    .why-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .why-item {
-      background: linear-gradient(to right, #f1f1f1, #f9f9f9);
-      border-radius: 10px;
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .why-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-
     #message {
       text-align: center;
       margin-top: 15px;
@@ -175,30 +89,9 @@
 </head>
 <body>
   <div class="container">
-    <h1>Join The Sports Links – Where Clubs & Companies Connect</h1>
-    <p class="description">Create your free profile and connect with clubs, coaches, sponsors, and sport solution providers around the world.</p>
+    <h1>Create Your SportsLinks Profile</h1>
+    <p class="description">Join the network and connect with clubs and companies worldwide.</p>
     <div class="highlight">It’s Free Now!</div>
-
-    <div class="info-section">
-      <h2>Who Is The Sports Links For?</h2>
-      <div class="card-row">
-        <div class="card">
-          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="club icon" />
-          <div>
-            <strong>Clubs</strong>
-            <p>Multi Sport, Football, Basketball, Tennis, Padel, Gyms & More — if you run a sports club, academy, or training facility, this is where you connect with solution providers, sponsors, and other clubs.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="https://cdn-icons-png.flaticon.com/512/1063/1063393.png" alt="company icon" />
-          <div>
-            <strong>Sports Solution Provider Companies</strong>
-            <p>The Sports Links connects sports solution providers with clubs and clients in the industry. Companies offering technology, construction, services, and innovation — from apps and marketing to equipment and event management — can expand their network.</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <form id="signup-form">
       <label for="name">Full Name</label>
@@ -214,37 +107,14 @@
       <input type="password" id="confirm-password" name="confirm-password" required />
 
       <button type="submit">Create Your Sports Profile</button>
-      <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
     </form>
 
     <div id="message"></div>
-
-    <div class="why-join">
-      <h2>Why Join?</h2>
-      <div class="why-list">
-        <div class="why-item">
-          <strong>Promote Your Brand</strong>
-          <p>Get listed & increase visibility</p>
-        </div>
-        <div class="why-item">
-          <strong>Grow Your Business</strong>
-          <p>Generate leads through a trusted sports hub.</p>
-        </div>
-        <div class="why-item">
-          <strong>Network Globally</strong>
-          <p>Connect with verified clubs and partners</p>
-        </div>
-        <div class="why-item">
-          <strong>Find Opportunities</strong>
-          <p>Access sponsorships, coaching jobs & more</p>
-        </div>
-      </div>
-    </div>
   </div>
 
   <script>
-    // ضع هنا رابط Web App الخاص بك بعد نشر Google Apps Script
-    const webAppUrl = 'https://script.google.com/macros/s/AKfycbwh4M9KaSlshBJMDs045aP_IJeu5VkiWb1iuJp67zXym2ZgAovqS0WZh78Bwdctr3vehA/exec';
+    // استبدل الرابط برابط الـ Web App الخاص بك من Google Apps Script
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbxoWAwBMgcBaHbfh_Wj17-GfJBQWBIZHrioywGTkNCCcxSr8M0hqRXhAIqIn3d-lGIURw/exec';
 
     const form = document.getElementById('signup-form');
     const messageEl = document.getElementById('message');
@@ -273,7 +143,12 @@
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ name, email, password }),
+          mode: 'cors'
         });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
 
         const result = await response.json();
 
