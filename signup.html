@@ -6,18 +6,19 @@
   <title>SportsLinks - Sign Up</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* نفس الـ CSS اللي عندك */
     * {
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
     }
+
     body {
       background-color: #f9f9f9;
       color: #111;
       padding: 40px 20px;
     }
+
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -27,16 +28,19 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
       transition: box-shadow 0.3s ease;
     }
+
     h1 {
       text-align: center;
       font-size: 28px;
       margin-bottom: 15px;
     }
+
     p.description {
       text-align: center;
       font-size: 16px;
       margin-bottom: 20px;
     }
+
     .highlight {
       text-align: center;
       font-weight: bold;
@@ -44,15 +48,18 @@
       color: #28a745;
       margin-bottom: 30px;
     }
+
     .info-section h2 {
       font-size: 22px;
       margin-bottom: 20px;
     }
+
     .card-row {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
+
     .card {
       background-color: #f1f1f1;
       border-radius: 10px;
@@ -63,25 +70,31 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .card:hover {
       transform: scale(1.02);
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+
     .card img {
       width: 40px;
       height: 40px;
     }
+
     .card div {
       flex: 1;
     }
+
     form {
       margin-top: 30px;
     }
+
     label {
       display: block;
       margin-bottom: 5px;
       font-weight: 600;
     }
+
     input, select {
       width: 100%;
       padding: 12px;
@@ -91,10 +104,12 @@
       box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
       transition: box-shadow 0.3s ease, border-color 0.3s ease;
     }
+
     input:focus {
       border-color: #28a745;
       box-shadow: 0 0 5px rgba(40,167,69,0.2);
     }
+
     button {
       background-color: #28a745;
       color: white;
@@ -107,45 +122,54 @@
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
+
     button:hover {
       background-color: #218838;
       transform: scale(1.02);
     }
+
     .terms {
       font-size: 12px;
       text-align: center;
       margin-top: 10px;
     }
+
     .terms a {
       color: #28a745;
       text-decoration: none;
     }
+
     .why-join {
       margin-top: 40px;
     }
+
     .why-join h2 {
       font-size: 20px;
       margin-bottom: 15px;
     }
+
     .why-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
+
     .why-item {
       background: linear-gradient(to right, #f1f1f1, #f9f9f9);
       border-radius: 10px;
       padding: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .why-item:hover {
       transform: translateY(-4px);
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
+
     #message {
-      margin-top: 15px;
-      font-weight: bold;
       text-align: center;
+      margin-top: 15px;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -176,7 +200,7 @@
       </div>
     </div>
 
-    <form id="signupForm">
+    <form id="signup-form">
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" required />
 
@@ -190,10 +214,7 @@
       <input type="password" id="confirm-password" name="confirm-password" required />
 
       <button type="submit">Create Your Sports Profile</button>
-      <p class="terms">
-        By signing up, you agree to our
-        <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
-      </p>
+      <p class="terms">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
     </form>
 
     <div id="message"></div>
@@ -215,56 +236,58 @@
         </div>
         <div class="why-item">
           <strong>Find Opportunities</strong>
-          <p>Access sponsorships, coaching jobs &amp; more</p>
+          <p>Access sponsorships, coaching jobs & more</p>
         </div>
       </div>
     </div>
   </div>
 
   <script>
-    const form = document.getElementById('signupForm');
-    const messageDiv = document.getElementById('message');
+    // ضع هنا رابط Web App الخاص بك بعد نشر Google Apps Script
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbwb6vQ4yaiU_VHZ-jIK5EhuLG8r8Qun5OjRXtOTHL3MMQEZHmeH9rnykBCW8QuTRpWq/exec';
+
+    const form = document.getElementById('signup-form');
+    const messageEl = document.getElementById('message');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // تحقق من تطابق كلمة المرور
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
       const password = form.password.value;
       const confirmPassword = form['confirm-password'].value;
+
       if (password !== confirmPassword) {
-        messageDiv.textContent = 'Passwords do not match!';
-        messageDiv.style.color = 'red';
+        messageEl.style.color = 'red';
+        messageEl.textContent = 'Passwords do not match.';
         return;
       }
 
-      const data = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        password: password.trim(),
-      };
-
-      messageDiv.textContent = 'Processing...';
-      messageDiv.style.color = '#111';
+      messageEl.style.color = '#111';
+      messageEl.textContent = 'Processing...';
 
       try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbwb6vQ4yaiU_VHZ-jIK5EhuLG8r8Qun5OjRXtOTHL3MMQEZHmeH9rnykBCW8QuTRpWq/exec', {
+        const response = await fetch(webAppUrl, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, email, password }),
         });
 
         const result = await response.json();
 
-        messageDiv.textContent = result.message;
-        messageDiv.style.color = result.message.includes('Error') ? 'red' : '#28a745';
-
-        if (!result.message.includes('Error')) {
+        if (result.success) {
+          messageEl.style.color = 'green';
+          messageEl.textContent = result.message;
           form.reset();
+        } else {
+          messageEl.style.color = 'red';
+          messageEl.textContent = result.message || 'Registration failed.';
         }
       } catch (error) {
-        messageDiv.textContent = 'Failed to submit. Please try again later.';
-        messageDiv.style.color = 'red';
-        console.error('Error:', error);
+        messageEl.style.color = 'red';
+        messageEl.textContent = 'Error: ' + error.message;
       }
     });
   </script>
