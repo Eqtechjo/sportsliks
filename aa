@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <button id="test">Test POST</button>
+  <pre id="result"></pre>
+
+  <script>
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbwh4M9KaSlshBJMDs045aP_IJeu5VkiWb1iuJp67zXym2ZgAovqS0WZh78Bwdctr3vehA/exec';
+
+    document.getElementById('test').onclick = async () => {
+      try {
+        const res = await fetch(webAppUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: "Test", email: "test@example.com", password: "1234" }),
+        });
+        const data = await res.json();
+        document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        document.getElementById('result').textContent = e.message;
+      }
+    }
+  </script>
+</body>
+</html>
