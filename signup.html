@@ -250,17 +250,12 @@
       return;
     }
 
-    const url = 'https://api.sheety.co/7a96066cfa7bed25dc8b7979487254db/signUp/sheet1';
+    const url = 'https://script.google.com/macros/s/AKfycbwxxxxxx/exec'; // ضع رابط الويب آب الخاص بك
 
     const data = {
-      sheet1: {
-        fullName: fullName,
-        email: email,
-        password: password,
-        verifiedTimestamp: "", // تتركها فارغة
-        status: "Pending"      // الحالة الافتراضية
-        // لا تضع "###" لأنه ممكن يسبب مشكلة
-      }
+      name: fullName,
+      email: email,
+      password: password
     };
 
     fetch(url, {
@@ -272,9 +267,12 @@
     })
     .then(res => res.json())
     .then(response => {
-      alert('Signed up successfully! We’ll contact you soon.');
-      form.reset();
-      console.log(response);
+      if (response.success) {
+        alert(response.message);
+        form.reset();
+      } else {
+        alert(response.message);
+      }
     })
     .catch(error => {
       alert('Failed to sign up. Please try again.');
@@ -282,5 +280,6 @@
     });
   });
 </script>
+
 
 </html>
